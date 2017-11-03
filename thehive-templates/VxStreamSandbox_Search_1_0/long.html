@@ -1,0 +1,80 @@
+<div class="VxStreamSandbox" ng-if="success">
+    <style>
+        .report-VxStreamSandbox dl {
+            margin-bottom: 2px;
+        }
+    </style>
+
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <strong>General Information</strong>
+        </div>
+        <div class="panel-body">
+            <h4>VxStream Sandbox</h4>
+            <br>
+                <dl class="dl-horizontal">
+                    <dt>Search</dt>
+                    <dd>{{content.search}}</dd>
+                </dl>
+                <br>
+                <dl class="dl-horizontal">
+                    <dt>API</dt>
+                    <dd><a ng-href="{{content.url}}">{{content.url}}</a></dd>
+                </dl>
+        </div>
+    </div>
+
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <strong>Results</strong>
+        </div>
+        <div class="panel-body">
+            <dl class="dl-horizontal" ng-repeat="i in content.hits">
+                <h4>VxStream Sandbox</h4>
+                <dl class="dl-horizontal">
+                    <dt>EnvironmentID</dt>
+                    <dd>{{i.environmentId}}</dd>
+                    <dt>Environment Description</dt>
+                    <dd>{{i.environmentDescription}}</dd>
+                </dl>
+                <h4>File or URL Information</h4>
+                <dl class="dl-horizontal">
+                    <dt>Submission Name</dt>
+                    <dd>{{i.submitname}}</dd>
+                    <dt>Size</dt>
+                    <dd>{{i.size}}</dd>
+                    <dt>Type</dt>
+                    <dd>{{i.type_short}}</dd>
+                    <dt>SHA256</dt>
+                    <dd>{{i.sha256}}</dd>
+                </dl>
+                <h4>Analysis</h4>
+                <dl class="dl-horizontal">
+                    <dt>Start Time</dt>
+                    <dd>{{i.start_time}}</dd>
+                </dl>
+                <h4>Threat</h4>
+                <dl class="dl-horizontal">
+                    <dt>Verdict</dt>
+                    <dd>{{i.verdict}}</dd>
+                    <dt>Threat Score</dt>
+                    <dd>{{i.threatscore}}</dd>
+                    <dt>Antivirus Detection</dt>
+                    <dd>{{i.avdetect}}%</dd>
+                    <dt>Signature</dt>
+                    <dd>{{i.vxfamily}}</dd>
+                </dl>
+            </dl>
+        </div>
+    </div>
+</div>
+
+<!-- General error  -->
+<div class="panel panel-danger" ng-if="!success">
+    <div class="panel-heading">
+        <strong>{{(artifact.data || artifact.attachment.name) | fang}}</strong>
+    </div>
+    <div class="panel-body">
+        {{content.errorMessage}}
+    </div>
+</div>

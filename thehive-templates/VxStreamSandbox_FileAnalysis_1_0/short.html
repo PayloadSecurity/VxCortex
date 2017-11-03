@@ -1,0 +1,6 @@
+<span class="label">
+    {{content.type}}, {{content.avdetect}}%, {{content.tags}}
+</span>
+<span class="label" ng-repeat="t in content.taxonomy" ng-class="{'info': 'label-info', 'safe': 'label-success', 'suspicious': 'label-warning', 'malicious':'label-danger'}[t.level]">
+    {{t.namespace}}:{{t.predicate}}={{t.value}}, {{content.signature}}
+</span>

@@ -1,0 +1,184 @@
+<div class="VxStreamSandbox" ng-if="success">
+    <style>
+        .report-VxStreamSandbox dl {
+            margin-bottom: 2px;
+        }
+    </style>
+
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <strong>General Information</strong>
+        </div>
+        <div class="panel-body">
+            <h4>VxStream Sandbox</h4>
+            <br>
+                <dl class="dl-horizontal">
+                    <dt>EnvironmentID</dt>
+                    <dd>{{content.environmentId}}</dd>
+                </dl>
+                <dl class="dl-horizontal">
+                    <dt>Environment Description</dt>
+                    <dd>{{content.environmentDescription}}</dd>
+                </dl>
+                <dl class="dl-horizontal">
+                    <dt>URL</dt>
+                    <dd><a ng-href="{{content.url}}">{{content.url}}</a></dd>
+                </dl>
+            <br>
+            <h4>URL Information</h4>
+            <br>
+                <dl class="dl-horizontal">
+                    <dt>Submission Name</dt>
+                    <dd>{{content.submitname}}</dd>
+                </dl>
+                <dl class="dl-horizontal">
+                    <dt>Size</dt>
+                    <dd>{{content.size}}</dd>
+                </dl>
+                <dl class="dl-horizontal">
+                    <dt>Type</dt>
+                    <dd>{{content.type}}</dd>
+                </dl>
+                <dl class="dl-horizontal">
+                    <dt>MD5</dt>
+                    <dd>{{content.md5}}</dd>
+                </dl>
+                <dl class="dl-horizontal">
+                    <dt>SHA1</dt>
+                    <dd>{{content.sha1}}</dd>
+                </dl>
+                <dl class="dl-horizontal">
+                    <dt>SHA256</dt>
+                    <dd>{{content.sha256}}</dd>
+                </dl>
+        </div>
+    </div>
+
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <strong>Analysis</strong>
+        </div>
+        <div class="panel-body">
+            <div>
+                <h4>Information</h4>
+                <br>
+                    <dl class="dl-horizontal">
+                        <dt>Start Time</dt>
+                        <dd>{{content.analysis_start_time}}</dd>
+                    </dl>
+                    <dl class="dl-horizontal">
+                        <dt>Is Url</dt>
+                        <dd>{{content.isurlanalysis}}</dd>
+                    </dl>
+                <br>
+                <h4>Threat</h4>
+                <br>
+                    <dl class="dl-horizontal">
+                        <dt>Is Interesting</dt>
+                        <dd>{{content.isinteresting}}</dd>
+                    </dl>
+                    <dl class="dl-horizontal">
+                        <dt>Verdict</dt>
+                        <dd>{{content.verdict}}</dd>
+                    </dl>
+                    <dl class="dl-horizontal">
+                        <dt>Threat Level</dt>
+                        <dd>{{content.threatlevel}}</dd>
+                    </dl>
+                    <dl class="dl-horizontal">
+                        <dt>Threat Score</dt>
+                        <dd>{{content.threatscore}}</dd>
+                    </dl>
+                    <dl class="dl-horizontal">
+                        <dt>Antivirus Detection</dt>
+                        <dd>{{content.avdetect}}%</dd>
+                    </dl>
+                    <dl class="dl-horizontal">
+                        <dt>Signature</dt>
+                        <dd>{{content.vxfamily}}</dd>
+                    </dl>
+                   <dl class="dl-horizontal">
+                        <dt>Tags</dt>
+                        <dd ng-if="content.classification_tags.length" ng-repeat="i in content.classification_tags">{{i}}</dd>
+                        <dd ng-if="!content.classification_tags.length"></dd>
+                    </dl>
+            </div>
+
+            <hr>
+
+            <div>
+                <h4>Behaviour</h4>
+                <br>
+                    <dl class="dl-horizontal">
+                        <dt>Total Signatures</dt>
+                        <dd>{{content.total_signatures}}</dd>
+                    </dl>
+                    <dl class="dl-horizontal">
+                        <dt>Total Processes</dt>
+                        <dd>{{content.total_processes}}</dd>
+                    </dl>
+                    <dl class="dl-horizontal">
+                        <dt>Total Network Connections</dt>
+                        <dd>{{content.total_network_connections}}</dd>
+                    </dl>
+                     <dl class="dl-horizontal">
+                        <dt>Hosts</dt>
+                        <dd ng-if="content.hosts.length" ng-repeat="i in content.hosts">{{i}}</dd>
+                        <dd ng-if="!content.hosts.length"></dd>
+                    </dl>
+                     <dl class="dl-horizontal">
+                        <dt>Domains</dt>
+                        <dd ng-if="content.domains.length" ng-repeat="i in content.domains">{{i}}</dd>
+                        <dd ng-if="!content.domains.length"></dd>
+                    </dl>
+                     <dl class="dl-horizontal">
+                        <dt>Compromised Hosts</dt>
+                        <dd ng-if="content.compromised_hosts.length" ng-repeat="i in content.compromised_hosts">{{i}}</dd>
+                        <dd ng-if="!content.compromised_hosts.length"></dd>
+                    </dl>
+                <hr>
+            </div>
+
+            <div>
+                <h4>Dropped Files</h4>
+                <br>
+                    <dl class="dl-horizontal">
+                        <dt>Total</dt>
+                        <dd>{{content.dropped_total}}</dd>
+                    </dl>
+                    <dl class="dl-horizontal" ng-if="content.dropped.length" ng-repeat="i in content.dropped">
+                        <dt>{{i.filename}}</dt>
+                        <dd>{{i.path}}</dd>
+                        <dd>{{i.sha256}}</dd>
+                    </dl>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-info"
+         ng-if="content.htmlreport || content.pdfreport">
+        <div class="panel-heading">
+            <strong>Reports</strong>
+        </div>
+        <div class="panel-body">
+            <dl class="dl-horizontal">
+                <dt>HTML Report</dt>
+                <dd><a ng-href="{{content.htmlreport}}">{{content.htmlreport}}</a></dd>
+            </dl>
+            <dl class="dl-horizontal">
+                <dt>PDF Report</dt>
+                <dd><a ng-href="{{content.pdfreport}}">{{content.pdfreport}}</a></dd>
+            </dl>
+        </div>
+    </div>
+</div>
+
+<!-- General error  -->
+<div class="panel panel-danger" ng-if="!success">
+    <div class="panel-heading">
+        <strong>{{(artifact.data || artifact.attachment.name) | fang}}</strong>
+    </div>
+    <div class="panel-body">
+        {{content.errorMessage}}
+    </div>
+</div>

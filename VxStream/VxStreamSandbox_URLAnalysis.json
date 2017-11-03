@@ -1,0 +1,19 @@
+{
+    "name": "VxStreamSandbox_URLAnalysis",
+    "version": "1.0",
+    "author": "Diogo Fernandes, Payload Security",
+    "url": "https://github.com/CERT-BDF/Cortex-Analyzers",
+    "license": "AGPL-V3",
+    "baseConfig": "VxStream",
+    "config": {
+        "hybridanalysis": true,
+        "nosharevt": false,
+        "service": "URLAnalysis",
+        "torenabledanalysis": false
+    },
+    "description": "VxStream Sandbox URL analysis",
+    "dataTypeList": [
+        "url"
+    ],
+    "command": "VxStream/vxstream.py"
+}

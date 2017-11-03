@@ -1,0 +1,20 @@
+{
+    "name": "VxStreamSandbox_Search",
+    "version": "1.0",
+    "author": "Diogo Fernandes, Payload Security",
+    "url": "https://github.com/CERT-BDF/Cortex-Analyzers",
+    "license": "AGPL-V3",
+    "baseConfig": "VxStream",
+    "config": {
+        "service": "Search"
+    },
+    "description": "VxStream Sandbox search feature",
+    "dataTypeList": [
+        "domain",
+        "fqdn",
+        "hash",
+        "ip",
+        "port"
+    ],
+    "command": "VxStream/vxstream.py"
+}
