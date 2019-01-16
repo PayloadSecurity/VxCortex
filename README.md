@@ -131,3 +131,6 @@ https://github.com/CERT-BDF/cortex-analyzers/<br />
 https://github.com/CERT-BDF/CortexDocs<br />
 https://github.com/CERT-BDF/TheHiveDocs/<br />
 https://cert-bund-cortex-analyzers.readthedocs.io/en/latest/index.html
+
+Copyright (C) 2019 Hybrid Analysis GmbH
+
